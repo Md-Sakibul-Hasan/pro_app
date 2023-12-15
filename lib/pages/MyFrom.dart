@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pro_app/pages/Home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'my_button.dart';
 
@@ -117,8 +118,12 @@ class MyCustomFormState extends StatelessWidget {
 
               SizedBox(height: 25,),
               GestureDetector(
-                  onTap: (){
+                  onTap: ()async{
                     if (_formkey.currentState!.validate()){
+                      var prefs = await SharedPreferences.getInstance();
+
+                      await prefs.setBool('Login', true);
+
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
                     }
                   },
