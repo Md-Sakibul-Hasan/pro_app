@@ -1,24 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:pro_app/pages/SignIn.dart';
 
 import 'MyFrom.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-
-
-  @override
-
-
-
   Widget build(BuildContext context) {
-    return SafeArea
-      (child: Scaffold(
+    return SafeArea(
+        child: Scaffold(
       backgroundColor: Colors.grey[300],
       body: Center(
         child: Column(
@@ -35,16 +26,6 @@ class _LoginPageState extends State<LoginPage> {
               height: 50,
             ),
 
-            Text(
-              'Welcome Back , You\'ve been missed!',
-              style: TextStyle(
-                  color: Colors.grey[700],
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16),
-            ),
-            SizedBox(
-              height: 25,
-            ),
 
             MyCustomFormState(),
 
@@ -72,17 +53,28 @@ class _LoginPageState extends State<LoginPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Not a member?'),
-                SizedBox(width: 5,),
-                Text('Register Now',style: TextStyle(color: Colors.blue),)
+                Text('Already have an accout?'),
+                SizedBox(
+                  width: 5,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => SignIn()));
+
+                  },
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                )
               ],
             )
-
           ],
         ),
       ),
-
-    )
-    );
+    ));
   }
 }

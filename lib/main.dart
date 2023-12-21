@@ -20,6 +20,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   bool Login = false;
 
+
   void initState() {
     super.initState();
     Check_Login();
@@ -31,15 +32,15 @@ class _MyAppState extends State<MyApp> {
 
     var prefs = await SharedPreferences.getInstance();
     bool? L = await prefs.getBool('Login');
-    if (L==true){
-      Login=true;
-    } else{
-      Login= false;
-    }
+
+    var t = L==true?Login=true:Login=false;
     setState(() {
 
     });
   }
+
+
+
 
 
   @override

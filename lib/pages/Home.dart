@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pro_app/pages/Login_Page.dart';
+import 'package:pro_app/pages/SignIn.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'My_Profile.dart';
@@ -32,8 +33,8 @@ class Home extends StatelessWidget {
               onPressed: ()async{
                 var prefs = await SharedPreferences.getInstance();
 
-                await prefs.setBool('Login', true);
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+                await prefs.setBool('Login',false);
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>SignIn()));
               },
               child: Text('LogOut')
           )

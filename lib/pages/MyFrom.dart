@@ -120,9 +120,16 @@ class MyCustomFormState extends StatelessWidget {
               GestureDetector(
                   onTap: ()async{
                     if (_formkey.currentState!.validate()){
+
+                      var mail= mail_controller.text.toString();
+                      var pass= pass_controller.text.toString();
                       var prefs = await SharedPreferences.getInstance();
 
-                      await prefs.setBool('Login', true);
+                      await prefs.setBool('Login',true);
+
+                      await prefs.setString("mail", mail);
+                      await prefs.setString("pass", pass);
+
 
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>Home()));
                     }
